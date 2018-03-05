@@ -20,8 +20,9 @@ class PaymentController extends Controller
     }
     public function paymentAuth(Request $req)
     {
-        dd($req->all());
+        // dd($req->all());
         $flag=true;
+        $amount="$ ".$req->amount;
         try {
             $token=Token::create(['card'=>[
             "number" => $req->input('card-no'),
@@ -39,7 +40,7 @@ class PaymentController extends Controller
             dd($e);
             $flag=false;
         }
-        return view('payment-status', compact('flag'));
+        return view('payment-status', compact('flag', 'amount'));
     }
 
     //

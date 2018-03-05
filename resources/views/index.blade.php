@@ -29,6 +29,12 @@
     <div class="container">
         
         <form action="/auth-payment" method="POST" class="col-sm-offset-3 col-sm-6">
+        <input type="hidden" name="amount" value="{{$amount ?? 30}}">
+            <div class="col-sm-12">
+                <span class="pull-right" style="font-size:20px;padding:30px">
+                    $ {{$amount ?? 30}}
+                </span>
+            </div>
             <input type="text" name="data" id="data"  style="position: absolute;top:-1000px" autofocus>
             <input type="button" value="Enable Reader" id="enable-reader" style="position: absolute;top:-1000px" />
             <div class="row">
