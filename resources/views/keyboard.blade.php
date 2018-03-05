@@ -9,14 +9,18 @@
 <script src="https://mottie.github.io/Keyboard/js/jquery.keyboard.extension-typing.js"></script>
 <style>
     .ui-keyboard{
-        margin-top: 250px;
+        margin-top: 490px;
+        font-size:18px;
         width:100%;
+    }
+    .error{
+        color:red;
     }
 </style>
 <script>
     /* VIRTUAL KEYBOARD DEMO - https://github.com/Mottie/Keyboard */
 $(function() {
-  $('#email,#cvv').keyboard({
+  $('#email,#cvv,#fname,#lname,#card-no,#mm,#yy').keyboard({
       layout: 'normal',
     	customLayout: { 
             'normal': [ '1 2 3 4 5 6 7 8 9 0 {b}',

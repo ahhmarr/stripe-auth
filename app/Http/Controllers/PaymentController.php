@@ -20,22 +20,23 @@ class PaymentController extends Controller
     }
     public function paymentAuth(Request $req)
     {
+        dd($req->all());
         $flag=true;
         try {
             $token=Token::create(['card'=>[
             "number" => $req->input('card-no'),
-            "exp_month" => $req->mm,
-            "exp_year" => (2000+$req->yy),
-            "cvc" => $req->cvv
+            "exp_month" => $req->input('mm'),
+            "exp_year" => (2000+$req->input('yy')),
+            "cvc" => $req->input('cvv')
         ]]);
             $charge=Charge::create([
             "card"=>$token,
-            "amount"=>$req->amount*100,
+            "amount"=>$req->input('amount')*100,
             "currency"=>"usd",
             "description"=>"charged client @".time()
         ]);
         } catch (\Exception $e) {
-            // dd($e);
+            dd($e);
             $flag=false;
         }
         return view('payment-status', compact('flag'));
