@@ -13,6 +13,6 @@
 use \Illuminate\Http\Request;
 
 $router->get('/', function (Request $request) use ($router) {
-    return view('index', ['amount'=>$request->input('amount')]);
+    return view('index', ['amount'=>$request->input('offsetamount')]);
 });
 $router->post('/auth-payment', 'PaymentController@paymentAuth');

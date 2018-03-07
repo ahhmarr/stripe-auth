@@ -11,15 +11,43 @@
 <body>
     {{--    --}}
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+
    <style>
        p{
            padding-top:10px;
            font-weight: bold;
        }
        .form-control{
-           border-radius: 0px;
-           padding:25px;
+           border-radius: 0px!important;
+           border: none;
+           padding:15px;
+           height:55px;
+           /* font-size:20px; */
            
+       }
+       #card-no{
+           letter-spacing:20px;
+           font-size:20px;
+       }
+       ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        letter-spacing: normal;
+        font-size:initial;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+            letter-spacing: normal;
+            font-size:initial;
+        }
+        .fa{
+            color:#ccc;
+        }
+       /* .hidden-x{
+           position: absolute;
+           top:-10000px;
+       } */
+       .hidden-xx{
+           display: none;
        }
        [type="submit"]{
            margin-top:10px;
@@ -27,62 +55,58 @@
        }
    </style>
     <div class="container">
-        
         <form action="/auth-payment" method="POST" class="col-sm-offset-3 col-sm-6">
-        <input type="hidden" name="amount" value="{{$amount ?? 30}}">
+            <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
             <div class="col-sm-12">
                 <span class="pull-right" style="font-size:20px;padding:30px">
-                    $ {{$amount ?? 30}}
+                    $ {{$amount ?? 0.1}}
                 </span>
             </div>
-            <input type="text" name="data" id="data"  style="position: absolute;top:-1000px" autofocus>
-            <input type="button" value="Enable Reader" id="enable-reader" style="position: absolute;top:-1000px" />
+            <input autocomplete="off" type="text" name="data" id="data"   autofocus class="hidden-x">
+            <input type="button" value="Enable Reader" id="enable-reader"   class="hidden-x"/>
             <div class="row">
                 <div class="col-sm-12">
                     <p>Card Number</p>
                     <input required  class="form-control" type="password" name="card-no" id="card-no" placeholder="Card Number">
+                    <i class="fa fa-eye fa-2x" style="position: absolute;right:-25px;margin-top:-35px"></i>
+                    <i class="fa fa-eye-slash hidden-xx fa-2x" style="position: absolute;right:-25px;margin-top:-35px"></i>
                 </div>
             </div>
             <div class="row">
                 
                 <div class="col-sm-6">
                     <p>First Name</p>
-                    <input class="form-control" required type="text" name="fname" id="fname" placeholder="First Name">
+                    <input class="form-control" required autocomplete="off" type="text" name="fname" id="fname" placeholder="First Name">
                 </div>
                 <div class="col-sm-6">
                     <p>Last Name</p>
-                    <input  class="form-control" required type="text" name="lname" id="lname" placeholder="Last Name">
+                    <input  class="form-control" required autocomplete="off" type="text" name="lname" id="lname" placeholder="Last Name">
                 </div>
             </div>
            
             <div class="row">
                 <div class="col-sm-6">
                     <p>Month</p>
-                    <input class="form-control" required type="text" name="mm" id="mm" placeholder="Month(mm)">
+                    <input class="form-control" required autocomplete="off" type="text" name="mm" id="mm" placeholder="Month(mm)">
                 </div>
                 <div class="col-sm-6">
                     <p>Year</p>
-                    <input class="form-control" required type="text" name="yy" id="yy" placeholder="Year(yy)">
+                    <input class="form-control" required autocomplete="off" type="text" name="yy" id="yy" placeholder="Year(yy)">
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <p>CVV</p>
-                    <input  class="form-control" required type="text" name="cvv" id="cvv" placeholder="CVV">
+                    <input  class="form-control" required autocomplete="off" type="text" name="cvv" id="cvv" placeholder="CVV">
                 </div>
                 <div class="col-sm-9">
                     <p>Email</p>
-                    <input   class="form-control" required type="email" name="email" id="email" placeholder="Email">
+                    <input   class="form-control" required type="email" autocomplete="off" name="email" id="email" placeholder="Email">
                 </div>
-            </div>
-            <div>
-            </div>
-            <div>
             </div>
             <div>
                 <input type="submit" class="btn btn-primary btn-block" value="Authorize" >
             </div>
-            
         </form>
     </div>
 </body>
@@ -93,6 +117,23 @@
 <script>
     $(function(){
         $('form').validate({
+            rules : {
+                cvv :{
+                    number : true,
+                    minlength : 3,
+                    maxlength :3
+                },
+                mm : {
+                    number : true,
+                    min : 1,
+                    max :12
+                },
+                yy : {
+                    number : true,
+                    min : 18,
+                    max : 99
+                }
+            },
             submitHandler : function(form){
                 form.submit();
             }
@@ -100,6 +141,18 @@
     })
 </script>
 <script>
+    $(function(){
+        $('.fa-eye').click(function(){
+            $('#card-no').attr('type','text');
+            $(this).hide();
+            $('.fa-eye-slash').show();
+        })
+        $('.fa-eye-slash').click(function(){
+            $('#card-no').attr('type','password');
+            $(this).hide();
+            $('.fa-eye').show();
+        })
+    })
     $(function () {
         $('#data').keyup(function () {
             const v = $(this).val();
@@ -167,9 +220,12 @@
         $('#mm').val(mm);
         $('#yy').val(yy);
         $('#data').val('');
-        $('#fname').focus();
+        // $('#fname').focus();
     }
     $(window).on('load',function(){
+        $('#data').focus();
+    })
+    $(function(){
         $('#data').focus();
     })
     $(function(){
