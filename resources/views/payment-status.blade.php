@@ -32,4 +32,11 @@
         }
         
     </style>
+    <script>
+        window.onload=function(){
+            window.setTimeout(() => {
+                window.history.back();
+            }, 5000);
+        }
+    </script>
 @stop
