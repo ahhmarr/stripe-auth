@@ -267,6 +267,37 @@
         name = name.replace(/\^/g, '').replace(/\//g, ' ').split(',').shift();
     }
     
+    
+</script>
+<script>
+var inactivityTime = function () {
+    console.log(`called`)
+    var t;
+    window.onload = resetTimer;
+    // DOM Events
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+    document.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onmousedown = resetTimer; // touchscreen presses
+    document.ontouchstart = resetTimer;
+    document.onclick = resetTimer;     // touchpad clicks
+    document.onscroll = resetTimer;    // scrolling with arrow keys
+    document.onkeypress = resetTimer;
+
+    function logout() {
+        // alert("You are now logged out.")
+        location.href='https://offsetmytrip.com/kiosk/';
+        //location.href = 'logout.php'
+    }
+
+    function resetTimer() {
+        clearTimeout(t);
+        t = setTimeout(logout,20*1000) //20 seconds
+        // 1000 milisec = 1 sec
+    }
+};
+inactivityTime();
 </script>
 
 </html>
