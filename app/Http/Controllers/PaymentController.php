@@ -34,12 +34,15 @@ class PaymentController extends Controller
             "card"=>$token,
             "amount"=>$req->input('amount')*100,
             "currency"=>"usd",
-            "description"=>"charged client @".time(),
+            "description"=>"AVL Airport Kiosk - Offset Your Trip Donation",
             "receipt_email"=>$req->email
         ]);
         } catch (\Exception $e) {
-            dd($e);
+            // dd($e);
             $flag=false;
+        }
+        if ($flag) {
+            return redirect()->to('https://offsetmytrip.com/kiosk/');
         }
         return view('payment-status', compact('flag', 'amount'));
     }
