@@ -42,10 +42,10 @@
         .fa{
             color:#ccc;
         }
-       /* .hidden-x{
+       .hidden-x{
            position: absolute;
            top:-10000px;
-       } */
+       }
        .hidden-xx{
            display: none;
        }
@@ -53,7 +53,11 @@
            margin-top:10px;
            padding:15px;
        }
+       .heading{
+           /* color:gray; */
+       }
    </style>
+        <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation. </h3>
     <div class="container">
         <form action="/auth-payment" method="POST" class="col-sm-offset-3 col-sm-6">
             <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
@@ -108,7 +112,21 @@
                 <input type="submit" class="btn btn-primary btn-block" value="Authorize" >
             </div>
         </form>
+        
+
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h5 class="text-center heading">   
+        <div>
+            Appalachian Offsets is a program of Green Built Alliance, <br>
+            a recognized charitable organization under §501(c)3 of the Internal Revenue Code. <br>
+            Contributions to Green Built Alliance are tax-deductible to the extent permitted by law.
+        </div>
+        <div>www.cutmycarbon.org | www.greenbuilt.org</div>
+    </h5>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>

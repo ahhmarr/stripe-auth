@@ -38,7 +38,7 @@ class PaymentController extends Controller
             "receipt_email"=>$req->email
         ]);
         } catch (\Exception $e) {
-            // dd($e);
+            dd($e);
             $flag=false;
         }
         return view('payment-status', compact('flag', 'amount'));
