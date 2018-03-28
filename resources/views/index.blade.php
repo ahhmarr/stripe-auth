@@ -287,7 +287,7 @@ var inactivityTime = function () {
 
     function logout() {
         // alert("You are now logged out.")
-        location.href='https://offsetmytrip.com/kiosk/';
+        location.href='https://offsetmytrip.com/kiosktest/';
         //location.href = 'logout.php'
     }
 

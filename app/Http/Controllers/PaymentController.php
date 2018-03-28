@@ -42,7 +42,7 @@ class PaymentController extends Controller
             $flag=false;
         }
         if ($flag) {
-            return redirect()->to('https://offsetmytrip.com/kiosk/');
+            return redirect()->to('https://offsetmytrip.com/kiosktest/');
         }
         return view('payment-status', compact('flag', 'amount'));
     }
