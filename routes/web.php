@@ -18,3 +18,6 @@ $router->get('/', function (Request $request) use ($router) {
 $router->post('/auth-payment', 'PaymentController@paymentAuth');
 $router->get('/alive', 'KioskController@alive');
 $router->get('/dead', 'KioskController@dead');
+$router->get('/addr', function () {
+    return $_SERVER['REMOTE_ADDR'];
+});
