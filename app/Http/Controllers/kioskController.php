@@ -26,7 +26,7 @@ class KioskController extends Controller
         }
     }
 
-    public function dead(Request $req)
+    public function dead()
     {
         $this->sendText(env('TEXT_NUMBER', '+18282811085'));
     }
