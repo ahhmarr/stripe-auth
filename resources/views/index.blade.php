@@ -15,15 +15,41 @@
 
 
    <style>
+       html, body, .container,#gif-wrapper {
+            /* Height and width fallback for older browsers. */
+            height: 100%;
+            /* width: 100%; */
+
+            /* Set the height to match that of the viewport. */
+            height: 100vh;
+
+            /* Set the width to match that of the viewport. */
+            /* width: 100vw; */
+
+            /* Remove any browser-default margins. */
+            /* margin: 0; */
+        }
+        html {
+            overflow: hidden;
+        }
+       .container{
+           background-color:rgba(255, 255, 255, 0.3);
+           width:415px;
+       }
+       p {
+           
+       }
        p{
            padding-top:10px;
            font-weight: bold;
+           color:#00a7e8;
+           text-shadow: 1px 1px #fff;
        }
        .form-control{
            border-radius: 0px!important;
            border: none;
            padding:15px;
-           height:55px;
+           /* height:55px; */
            /* font-size:20px; */
            
        }
@@ -33,14 +59,15 @@
        }
        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         letter-spacing: normal;
-        font-size:initial;
+        font-size:13px;
         }
         ::-moz-placeholder { /* Firefox 19+ */
             letter-spacing: normal;
-            font-size:initial;
+            font-size:13px;
         }
-        .fa{
+        .fa-eye{
             color:#ccc;
+            display: none;
         }
        .hidden-x{
            position: absolute;
@@ -73,13 +100,13 @@
     <video autoplay loop id="video-background" muted plays-inline>
     <source src="https://offsetmytrip.com/kiosktest/3671960.mp4" type="video/mp4">
     </video>
-    <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation. </h3>
+    {{-- <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation. </h3> --}}
     <div class="container">
-        <form action="/auth-payment" method="POST" class="col-sm-offset-3 col-sm-6">
+        <form action="/auth-payment" method="POST" class="">
             <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
             <div class="col-sm-12">
                 <span class="pull-right" style="font-size:20px;padding:30px">
-                    $ {{$amount ?? 0.1}}
+                    {{-- $ {{$amount ?? 0.1}} --}}
                 </span>
             </div>
             <input autocomplete="off" type="text" name="data" id="data"   autofocus class="hidden-x">
@@ -105,32 +132,34 @@
             </div>
            
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <p>Month</p>
                     <input class="form-control" required autocomplete="off" type="text" name="mm" id="mm" placeholder="Month(mm)">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <p>Year</p>
                     <input class="form-control" required autocomplete="off" type="text" name="yy" id="yy" placeholder="Year(yy)">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
+                 <div class="col-sm-4">
                     <p>CVV</p>
                     <input  class="form-control" required autocomplete="off" type="text" name="cvv" id="cvv" placeholder="CVV">
                 </div>
-                <div class="col-sm-9">
+            </div>
+            <div class="row">
+               
+                <div class="col-sm-12">
                     <p>Email</p>
                     <input   class="form-control" required type="email" autocomplete="off" name="email" id="email" placeholder="Email">
                 </div>
             </div>
-            <div>
+            <div style="margin-top: 30px;">
                 <input type="submit" class="btn btn-primary btn-block" value="Authorize" >
             </div>
         </form>
         
 
     </div>
+    @include('slider-gif')
     <br>
     <br>
     <br>

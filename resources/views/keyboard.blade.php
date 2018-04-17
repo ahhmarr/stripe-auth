@@ -10,8 +10,11 @@
 <style>
     .ui-keyboard{
         margin-top: 490px;
-        font-size:18px;
-        width:100%;
+        font-size: 18px;
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 25px;
+        border: 5px solid #fff;
     }
     .error{
         color:red;
