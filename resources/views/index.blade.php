@@ -56,8 +56,24 @@
        .heading{
            /* color:gray; */
        }
+       video {
+        /*  making the video fullscreen  */
+        position: fixed;
+        right: 0; 
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+        width: auto; 
+        height: auto;
+        z-index: -100;
+        }
+
    </style>
-        <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation. </h3>
+    <!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+    <video autoplay loop id="video-background" muted plays-inline>
+    <source src="https://offsetmytrip.com/kiosktest/3671960.mp4" type="video/mp4">
+    </video>
+    <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation. </h3>
     <div class="container">
         <form action="/auth-payment" method="POST" class="col-sm-offset-3 col-sm-6">
             <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
@@ -293,7 +309,7 @@ var inactivityTime = function () {
 
     function resetTimer() {
         clearTimeout(t);
-        t = setTimeout(logout,20*1000) //20 seconds
+        // t = setTimeout(logout,20*1000) //20 seconds
         // 1000 milisec = 1 sec
     }
 };
