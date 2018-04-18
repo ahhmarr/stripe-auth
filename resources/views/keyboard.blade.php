@@ -45,5 +45,18 @@ $(function() {
     //     }
     // })
 });
+$(function(){
+   let prev='';
+    $('body').on('focus','.ui-keyboard-preview',function(){
+        // debugger;
+        let val=$(this).val();
+        if(val!==prev){
+            console.log(val);
+            prev=val;
+            let name=$(this).attr('name');
+            $(`[name="${name}"]`).val(val);
+        }
+    })
+})
 
 </script>
