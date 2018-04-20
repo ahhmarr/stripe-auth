@@ -157,6 +157,11 @@
             <div style="margin-top: 30px;">
                 <input type="submit" class="btn btn-primary btn-block" value="Authorize" >
             </div>
+            <div style="margin-top: 30px;">
+                <a href="https://offsetmytrip.com/kiosktest/" class="btn btn-danger btn-block" value="Authorize" style="padding:15px">
+                    Cancel
+                </a>
+            </div>
         </form>
         
 
