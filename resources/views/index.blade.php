@@ -340,7 +340,7 @@ var inactivityTime = function () {
 
     function resetTimer() {
         clearTimeout(t);
-        // t = setTimeout(logout,20*1000) //20 seconds
+        t = setTimeout(logout,30*1000) //20 seconds
         // 1000 milisec = 1 sec
     }
 };
