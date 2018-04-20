@@ -32,7 +32,8 @@ $(function() {
                         '@ z x c v b n m . _', 
                         '{accept} {space} {cancel}'
                     ] 
-        }
+        },
+        autoAccept : true
     })
     // $('#cvv').keyboard({
     //   layout: 'normal',
