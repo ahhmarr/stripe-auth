@@ -102,7 +102,7 @@
     </video>
     <h3 class="text-center heading"> Input your payment information to finalize your secure tax-deductible donation. </h3>
      <h2 class="text-center heading"> You are offsetting your trip for 
-         <span class="amount" style="color:#ccc">$ {{$amount ?? 0.1}}</span> donation. </h2>
+         <span class="amount" style="color:#ccc">${{$amount ?? 0.1}}</span> donation. </h2>
     <div class="container">
         <form action="/auth-payment" method="POST" class="">
             <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
