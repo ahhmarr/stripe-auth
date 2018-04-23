@@ -49,12 +49,12 @@
            border-radius: 0px!important;
            border: none;
            padding:15px;
-           /* height:55px; */
+           height:55px;
            /* font-size:20px; */
            
        }
        #card-no{
-           letter-spacing:20px;
+           /* letter-spacing:4px; */
            font-size:20px;
        }
        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -66,8 +66,8 @@
             font-size:13px;
         }
         .fa-eye{
-            color:#ccc;
-            display: none;
+            /* color:#ccc; */
+            /* display: none; */
         }
        .hidden-x{
            position: absolute;
@@ -114,7 +114,7 @@
             <input autocomplete="off" type="text" name="data" id="data"   autofocus class="hidden-x">
             <input type="button" value="Enable Reader" id="enable-reader"   class="hidden-x"/>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-11">
                     <p>Card Number</p>
                     <input required  class="form-control" type="password" name="card-no" id="card-no" placeholder="Card Number">
                     <i class="fa fa-eye fa-2x" style="position: absolute;right:-25px;margin-top:-35px"></i>
