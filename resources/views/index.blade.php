@@ -49,7 +49,7 @@
            border-radius: 0px!important;
            border: none;
            padding:15px;
-           height:55px;
+           height:45px;
            /* font-size:20px; */
            
        }
@@ -100,17 +100,17 @@
     <video autoplay loop id="video-background" muted plays-inline>
     <source src="https://offsetmytrip.com/kiosktest/3671960.mp4" type="video/mp4">
     </video>
-    <h3 class="text-center heading"> Input your payment information to finalize your secure tax-deductible donation. </h3>
+    <h3 class="text-center heading"> Swipe or manually input your payment information to finalize your tax-deductible donation.</h3>
      <h2 class="text-center heading"> You are offsetting your trip for 
          <span class="amount" style="color:#ccc">${{$amount ?? 0.1}}</span> donation. </h2>
     <div class="container">
         <form action="/auth-payment" method="POST" class="">
             <input type="hidden" name="amount" value="{{$amount ?? 0.1}}">
-            <div class="col-sm-12">
+            {{-- <div class="col-sm-12">
                 <span class="pull-right" style="font-size:20px;padding:30px">
-                    {{-- $ {{$amount ?? 0.1}} --}}
+                    $ {{$amount ?? 0.1}}
                 </span>
-            </div>
+            </div> --}}
             <input autocomplete="off" type="text" name="data" id="data"   autofocus class="hidden-x">
             <input type="button" value="Enable Reader" id="enable-reader"   class="hidden-x"/>
             <div class="row">
@@ -167,17 +167,13 @@
 
     </div>
     @include('slider-gif')
-    <br>
-    <br>
-    <br>
-    <br>
-    <h5 class="text-center heading">   
+    <h5 class="text-center heading" style="position: fixed;bottom:0">   
         <div>
-            Appalachian Offsets is a program of Green Built Alliance, <br>
-            a recognized charitable organization under §501(c)3 of the Internal Revenue Code. <br>
-            Contributions to Green Built Alliance are tax-deductible to the extent permitted by law.
+            Appalachian Offsets is a program of Green Built Alliance, a recognized charitable organization under §501(c)3 of the Internal Revenue Code. Contributions to Green Built Alliance are tax-deductible to the extent permitted by law.
         </div>
-        <div>www.cutmycarbon.org | www.greenbuilt.org</div>
+        <div> 
+            <a href="www.cutmycarbon.org">www.cutmycarbon.org  |</a> <a href="www.greenbuilt.org">www.greenbuilt.org</a>
+        </div>
     </h5>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
